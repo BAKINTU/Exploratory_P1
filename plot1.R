@@ -7,6 +7,9 @@ data_sub <- subset(data, Date >= "2007-02-01" & Date <= "2007-02-02")
 datetime <- paste(as.Date(data_sub$Date), data_sub$Time)
 data_sub$Datetime <- as.POSIXct(datetime)
 
+data_sub$global_activepower <- as.numeric(data_sub$Global_active_power)
+
+
 hist(data_sub$global_activepower, main="Global Active Power", 
      xlab="Global Active Power (kilowatts)", 
      ylab="Frequency", col="Red")
